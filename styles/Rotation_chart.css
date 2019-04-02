@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+#photo {
+	width: 1440px;        /*该div的宽高须与图片的宽高一致*/
+	height: 720px;
+	overflow: hidden;     /*隐藏超出内容，只显示一幅图*/
+	margin:0 auto;        /*水平居中*/
+}
+#rphoto {
+	width: 7200px;         /*该div用于存放五张图片，其宽为：5*图片宽*/
+	height: 720px;
+}
+img {
+	float: left;           /*五张图片向左浮动，横向无缝排列*/
+	width:1440px;
+	height:720px;
+}
+#rpoint {
+	position: absolute;    /*设置进度小圆点位置*/
+	left: 50%;
+	top: 680px;
+}
+#point1, #point2, #point3, #point4 {  
+	width: 20px;           /*设置进度小圆点央样式*/
+	height: 20px;
+	background-color: #CCC;
+	border-radius: 50%;    /*将按钮变为圆形*/
+	border: none;
+	cursor: pointer;       /*光标变为一只小手*/
+	outline: none;         /* 去除按钮边缘*/
+}
