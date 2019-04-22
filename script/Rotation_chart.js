@@ -13,7 +13,7 @@ function photoMove(){
 	photorun = setInterval("runLeft()",runspeed);  //设置定时器，每过runspeed秒，执行一次runLeft（）
 }
 function runLeft(){
-	if(runbox.scrollLeft%photowidth==0){           //如果播完一张图片
+	if(Math.floor(runbox.scrollLeft)%photowidth==0){           //如果播完一张图片
 		clearInterval(photorun);
 		setTimeout("photoMove()",4000);            //停留4s
 	}else{
@@ -25,17 +25,18 @@ function runLeft(){
 	judgeColor();                                  //用于设置进度小圆点颜色与图片相符
 }
 function judgeColor(){
-	if(runbox.scrollLeft>0 && runbox.scrollLeft<=photowidth){  
+	var sl = Math.floor(runbox.scrollLeft);        //浏览器页面缩放后，获取的scrollLeft精度改变，可能会产生小数，使用floor转成整数
+	if(sl>0 && sl<=photowidth){  
 		btn2.style.backgroundColor = "#F00";       //第二张图片时，第二个小圆点变红色，其他为灰色
 		btn1.style.backgroundColor = "#CCC";
 		btn3.style.backgroundColor = "#CCC";
 		btn4.style.backgroundColor = "#CCC";
-	}else if(runbox.scrollLeft>=photowidth+1 && runbox.scrollLeft<=photowidth*2){
+	}else if(sl>photowidth && sl<=photowidth*2){
 		btn3.style.backgroundColor = "#F00";       //第三张图片时，第三个小圆点变红色，其他为灰色
 		btn2.style.backgroundColor = "#CCC";
 		btn1.style.backgroundColor = "#CCC";
 		btn4.style.backgroundColor = "#CCC";
-	}else if(runbox.scrollLeft>=photowidth*2+1 && runbox.scrollLeft<=photowidth*3){ 
+	}else if(sl>photowidth*2 && sl<=photowidth*3){ 
 		btn4.style.backgroundColor = "#F00";       //第四张图片时，第四个小圆点变红色，其他为灰色
 		btn2.style.backgroundColor = "#CCC";
 		btn3.style.backgroundColor = "#CCC";
