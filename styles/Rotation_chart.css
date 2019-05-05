@@ -8,7 +8,9 @@
 	margin:0 auto;        /*水平居中*/
 }
 #rphoto {
-	width: 7200px;         /*该div用于存放五张图片，其宽为：5*图片宽*/
+	width: 7200px;         /*该div用于存放五张图片，其宽为：5*图
+
+片宽*/
 	height: 720px;
 }
 img {
